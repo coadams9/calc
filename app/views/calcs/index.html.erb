@@ -1,0 +1,9 @@
+<%= form_tag('/calculate', :method => 'post') do %>
+
+    <%= label_tag("Enter Input")%>
+    <%= text_field_tag('numbers')%>
+
+
+    <%=submit_tag("Caclulate!")%>
+
+<% end %>

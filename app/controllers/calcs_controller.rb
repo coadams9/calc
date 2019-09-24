@@ -1,27 +1,34 @@
 class CalcsController < ApplicationController
-    def new
-        @calc = Calc.new
-        # a.to_i + b.to_i
+    @@result = nil
+
+    def index
+
     end
 
-    def add
+    def calculate
+        user_input = params[:numbers]       
+        arr = user_input.split(/(-|\*|\/|\+)/)
+
+        math = arr.map do |x|
+            if x.to_i != 0
+                x = x.to_i
+            elsif x == '/'
+                x = /\// 
+            elsif x == '*'
+                x = /\*/
+            elsif x == '-'
+                x = /-/
+            elsif x == '+'
+                x = /\+/
+            end
+        end
+
+       
         byebug
-        @calc = Calc.new
-        a = params[:num_input1]
-        b = params[:num_input2]
-        answer = a.to_i + b.to_i
-        @calc.answer = answer
     end
 
-    def subtract(a,b)
-        a.to_i - b.to_i
-    end
-
-    def multiply(a,b)
-        a.to_i * b.to_i
-    end
-
-    def divide(a,b)
-        a.to_i / b.to_i
-    end
 end
+
+
+
+
