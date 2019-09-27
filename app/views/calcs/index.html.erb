@@ -6,4 +6,12 @@
 
     <%=submit_tag("Caclulate!")%>
 
+    
+
 <% end %>
+
+<% if @result %>
+    <%= @result %>
+<% else %>
+    <%= nil %>
+<%end %>
